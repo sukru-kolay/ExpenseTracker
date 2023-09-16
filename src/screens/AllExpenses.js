@@ -1,16 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import AllExpenses from './src/screens/AllExpenses';
 
-const App = () => {
+const AllExpenses = () => {
   return (
     <View>
-      <Text>Şükrü Kolay</Text>
-      <AllExpenses />
+      <Text>AllExpenses</Text>
     </View>
   );
 };
 
-export default App;
+export default AllExpenses;
 
 const styles = StyleSheet.create({});
