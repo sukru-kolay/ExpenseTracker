@@ -12,7 +12,6 @@ const renderExpenseItem = ({item}) => {
   );
 };
 const ExpensesList = ({expenses}) => {
-  console.log(expenses);
   return (
     <FlatList
       data={expenses}
