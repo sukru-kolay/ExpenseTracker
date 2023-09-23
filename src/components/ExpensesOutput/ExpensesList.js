@@ -5,6 +5,7 @@ import ExpenseItem from './ExpenseItem';
 const renderExpenseItem = ({item}) => {
   return (
     <ExpenseItem
+      id={item.id}
       description={item.description}
       amount={item.amount}
       date={item.date}
