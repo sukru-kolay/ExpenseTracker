@@ -10,6 +10,7 @@ import AllExpenses from './src/screens/AllExpenses';
 import {GlobalStyles} from './src/constants/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import IconButton from './src/components/UI/IconButton';
+import ExpensesContextProvider from './src/store/expenses-context';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -64,32 +65,34 @@ const App = () => {
   return (
     <>
       <StatusBar />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: GlobalStyles.colors.primary500,
-            },
-            headerTintColor: 'white',
-            headerTitleAlign: 'center',
-          }}>
-          <Stack.Screen
-            name="ExpensesOverview"
-            component={ExpensesOverview}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="ManageExpense"
-            component={ManageExpenses}
-            options={{
-              title: 'Manage Expense',
-              presentation: 'modal', // ios da görünür androidde görünmez
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <ExpensesContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: GlobalStyles.colors.primary500,
+              },
+              headerTintColor: 'white',
+              headerTitleAlign: 'center',
+            }}>
+            <Stack.Screen
+              name="ExpensesOverview"
+              component={ExpensesOverview}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="ManageExpense"
+              component={ManageExpenses}
+              options={{
+                title: 'Manage Expense',
+                presentation: 'modal', // ios da görünür androidde görünmez
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ExpensesContextProvider>
     </>
   );
 };
